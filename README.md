@@ -47,7 +47,7 @@ A more efficient approach is to perform a binary search over the candidate space
 O(log(n))
 
 #### Analysis:
-the solution is threefold: First, we find the pivot index through Divide & Conquer approach. Then, we divide the array by the pivot index to obtain two sorted sub-arrays. Finally, we perform Binary Search in the sub-array whose range covers the given number.
+The solution is threefold: First, we find the pivot index through Divide & Conquer approach. Then, we divide the array by the pivot index to obtain two sorted sub-arrays. Finally, we perform Binary Search in the sub-array whose range covers the given number.
 
 In the first part of the solution, we divide the array from the middle recursively to eventually reach to the pivot index. Checking for the pivot index is O(1), and therefore the recurrence relation is obtained as T(n) = T(n/2) + O(1). The general solution to this relation is, then, O(logn).
 
