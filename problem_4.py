@@ -1,4 +1,9 @@
 def sort_012(input_list):
+    if len(input_list) == 0:
+        return []
+    if not all(map(lambda elt: elt in [0, 1, 2], input_list)):
+        raise Exception("List elements must be one of [0, 1, 2]")
+        
     zero_idx = 0
     two_idx = len(input_list) - 1
     current_idx = 0
@@ -33,5 +38,3 @@ def sort_012(input_list):
 
     return input_list
 
-
-print(sort_012([0, 0, 2, 2, 2, 1, 1, 1, 2, 0, 2]))

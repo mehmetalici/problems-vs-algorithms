@@ -87,6 +87,12 @@ All in all, the complexity is O(nlogn) + O(n) + O(n) = O(nlogn).
 
 The efficiency of the algorithm was demonstrated with tests, namely in problem_3_test.py.
 
+### Problem 4: Dutch National Flag Problem
+#### Description:
+Given an input array consisting on only 0, 1, and 2, sort the array in a single traversal. You're not allowed to use any sorting function that Python provides.
+
+#### Expected Time Complexity
+O(n)
 
 ## Acknowledgements
 The project is developed as a part of the Data Structures & Algorithms course offered by Udacity. 
