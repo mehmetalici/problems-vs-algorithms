@@ -55,6 +55,38 @@ Next, dividing the array by the pivot as well as obtaining two sorted arrays are
 
 Finally, Binary Search algorithm takes O(logn) time to find the position of the number in the obtained sorted array.
 
+### Problem 3: Rearrange Array Elements
+#### Description
+>Rearrange Array Elements so as to form two number such that their sum is maximum. Return these two numbers. You can assume that all array elements are in the range [0, 9]. The number of digits in both the numbers cannot differ by more than 1. You're not allowed to use any sorting function that Python provides.
+>
+>For example, for [1, 2, 3, 4, 5], possible answers are [531, 42] or [542, 31]. In scenarios such as these when there are more than one possible answers, return any one.
+#### Expected Time Complexity:
+O(nlog(n))
+
+#### Analysis
+The problem is solved through sorting the array and indexing for alternating positions for both numbers. 
+
+For example, let our array `a = [3, 4, 1, 2, 5]`. Then, we apply `a = sorted(a, reverse=True)` to obtain `[5, 4, 3, 2, 1]`. Then indexing for alternating positions for two numbers, we have,
+
+`a[::2] = [5, 3, 1]`, 
+
+and,
+
+`a[1::2] = [4, 2]`, 
+
+to represent the target numbers 531 and 42, respectively. 
+
+Converting them to integers, we return the numbers to complete the solution.      
+
+The time complexity of the solution can be calculated as follows:
+1. **Sorting the array**: We applied heapsort by using built-in heaps, and therefore, O(nlogn).
+2. **Indexing**: Arrays provides random access at O(1) time for individual elements. Applying to all takes O(n) time.
+3. **Converting from list to int**: A str conversion technique was employed for elegancy. This introduces additional overhead but it is not of importance for our problem. The complexity is O(n).
+
+All in all, the complexity is O(nlogn) + O(n) + O(n) = O(nlogn).
+
+The efficiency of the algorithm was demonstrated with tests, namely in problem_3_test.py.
+
 
 ## Acknowledgements
 The project is developed as a part of the Data Structures & Algorithms course offered by Udacity. 
