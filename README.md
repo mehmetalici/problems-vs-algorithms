@@ -89,10 +89,14 @@ The efficiency of the algorithm was demonstrated with tests, namely in problem_3
 
 ### Problem 4: Dutch National Flag Problem
 #### Description:
-Given an input array consisting on only 0, 1, and 2, sort the array in a single traversal. You're not allowed to use any sorting function that Python provides.
+>Given an input array consisting on only 0, 1, and 2, sort the array in a single traversal. You're not allowed to use any sorting function that Python provides.
 
 #### Expected Time Complexity
 O(n)
+
+#### Analysis
+The numbers, i.e 0, 1, 2, are sorted by moving 0's and 2's to the start and end of the array, respectively. To achieve the target time complexity, we perform a single traversal by maintaining two variables to keep track of the indices of the location for the last index of the 0's and first index of the 2's. Thanks to that, we move in-place 0's and 2's to the target locations efficiently.    
+
 
 ## Acknowledgements
 The project is developed as a part of the Data Structures & Algorithms course offered by Udacity. 
