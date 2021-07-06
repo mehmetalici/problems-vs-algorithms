@@ -98,5 +98,32 @@ O(n)
 The numbers, i.e 0, 1, 2, are sorted by moving 0's and 2's to the start and end of the array, respectively. To achieve the target time complexity, we perform a single traversal by maintaining two variables to keep track of the indices of the location for the last index of the 0's and first index of the 2's. Thanks to that, we move in-place 0's and 2's to the target locations efficiently.    
 
 
+### Problem 5: Autocomplete with Tries
+#### Description:
+The problem description is included in the problem's notebook.
+
+#### Expected Time Complexity
+O(m*n), where m is the number of words and n is the length of the average word.
+
+#### Analysis
+Dictionary data structure was employed to represent the children of a Trie node. Another approach would be to use list instead. Dict-based approach has more memory overhead than list, but it is faster (?).
+
+With the implemented approach, it takes O(m*n) time to list all possible suffixes for a prefix. We perform this through a series of steps, which are enumerated below: 
+1. The node where the prefix ends is found in O(n) time, where n is the length of the prefix.
+2. Once we know the end node of prefix, a recursive DFS method is employed to traverse all suffix nodes. Since all characters will be traversed in the worst case, the time complexity is the expected time complexity, which is O(m*n).
+
+
+
+### Problem 6:  
+#### Description:
+>In this problem, we will look for smallest and largest integer from a list of unsorted integers. The code should run in O(n) time. Do not use Python's inbuilt functions to find min and max.
+
+#### Expected Time Complexity:
+O(n)
+
+#### Analysis
+Two variables were initialized to the first element of the array to keep track of the minimum and maximum of the given array. These variable values are then updated by comparisons to all elements of an array through a single traversal. Since there is a single traversal and O(1) work are done for each element, the time complexity is O(n).
+
+
 ## Acknowledgements
 The project is developed as a part of the Data Structures & Algorithms course offered by Udacity. 
