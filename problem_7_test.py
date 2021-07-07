@@ -63,6 +63,7 @@ def _get_huge(string):
 
 
 if __name__ == "__main__":
+    # You may wish to highlight "should print" strings throughout the file on your code editor for a fast evaluation. 
     test_regular_inputs()
     test_huge_inputs()
     test_edge_inputs()

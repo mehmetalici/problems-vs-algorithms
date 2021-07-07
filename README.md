@@ -114,7 +114,7 @@ With the implemented approach, it takes O(m*n) time to list all possible suffixe
 
 
 
-### Problem 6:  
+### Problem 6: Unsorted Integer Array  
 #### Description:
 >In this problem, we will look for smallest and largest integer from a list of unsorted integers. The code should run in O(n) time. Do not use Python's inbuilt functions to find min and max.
 
@@ -123,6 +123,36 @@ O(n)
 
 #### Analysis
 Two variables were initialized to the first element of the array to keep track of the minimum and maximum of the given array. These variable values are then updated by comparisons to all elements of an array through a single traversal. Since there is a single traversal and O(1) work are done for each element, the time complexity is O(n).
+
+
+### Problem 7: HTTPRouter with a Trie
+#### Description
+>For this exercise we are going to implement an HTTPRouter like you would find in a typical web server using the Trie data structure we learned previously.
+>
+>The purpose of an HTTP Router is to take a URL path like "/", "/about", or "/blog/2019-01-15/my-awesome-blog-post" and figure out what content to return. In a dynamic web server, the content will often come from a block of code called a handler.
+>
+>![](imgs\2-5-managing-app-location-with-react-router-2x.jpg)
+>First we need to implement a slightly different Trie than the one we used for autocomplete. Instead of simple words the Trie will contain a part of the http path at each node, building from the root node /
+>
+>In addition to a path though, we need to know which function will handle the http request. In a real router we would probably pass an instance of a class like Python's SimpleHTTPRequestHandler which would be responsible for handling requests to that path. For the sake of simplicity we will just use a string that we can print out to ensure we got the right handler
+>
+>A Trie with a single path entry of: "/about/me" would look like:
+>
+>(root, None) -> ("about", None) -> ("me", "About Me handler")
+>
+>**Bonus Point**: Add a not found handler to your Router which is returned whenever a path is not found in the Trie.
+>
+>**Bonus Point**: Handle trailing slashes! A request for '/about' or '/about/' are probably looking for the same page. Requests for '' or '/' are probably looking for the root handler. Handle these edge cases in your Router.
+
+#### Expected Time Complexity
+A lookup should take O(n) time.
+
+#### Analysis
+All desired components as well as bonus points were successfully implemented to meet the specifications. A route trie is implemented using dictionary data structure to store children nodes. The keys of the dictionary is consisted of path parts, which are the parts between slashes such as "about" and "me" in "about/me". The nodes, in turn, stores the handlers. 
+
+On lookup, the desired node is found in O(n) time thanks to the employed trie data structure. Then, its handler is returned to the user for use. The efficiency of the approach is demonstrated with tests of huge, regular and invalid inputs in the file problem_7_test.py.
+
+Additionally, a `HTTPRequestHandler` class was preferred over pure Python strings to represent handlers to emulate real-world scenarios. According to that, the implemented class' representation, i.e `__repr__` method, returns the string of the handler.   
 
 
 ## Acknowledgements
