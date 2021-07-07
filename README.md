@@ -7,7 +7,7 @@ A collection of solutions for various algorithmic questions in the following fie
 Each solution features a test module that involves individual test-cases for huge, invalid and regular inputs.  
 
 ## Performance Analysis
-The analysis for all seven problems are given under this section. 
+An analysis for all seven problems are given under this section. 
 
 ### Problem 1: Finding the Square-Root of an Integer
 #### Description:
@@ -55,6 +55,8 @@ Next, dividing the array by the pivot as well as obtaining two sorted arrays are
 
 Finally, Binary Search algorithm takes O(logn) time to find the position of the number in the obtained sorted array.
 
+Overall time complexity is, therefore, O(log(n)).
+
 ### Problem 3: Rearrange Array Elements
 #### Description
 >Rearrange Array Elements so as to form two number such that their sum is maximum. Return these two numbers. You can assume that all array elements are in the range [0, 9]. The number of digits in both the numbers cannot differ by more than 1. You're not allowed to use any sorting function that Python provides.
@@ -85,8 +87,6 @@ The time complexity of the solution can be calculated as follows:
 
 All in all, the complexity is O(nlogn) + O(n) + O(n) = O(nlogn).
 
-The efficiency of the algorithm was demonstrated with tests, namely in problem_3_test.py.
-
 ### Problem 4: Dutch National Flag Problem
 #### Description:
 >Given an input array consisting on only 0, 1, and 2, sort the array in a single traversal. You're not allowed to use any sorting function that Python provides.
@@ -95,17 +95,17 @@ The efficiency of the algorithm was demonstrated with tests, namely in problem_3
 O(n)
 
 #### Analysis
-The numbers, i.e 0, 1, 2, are sorted by moving 0's and 2's to the start and end of the array, respectively. To achieve the target time complexity, we perform a single traversal by maintaining two variables to keep track of the indices of the location for the last index of the 0's and first index of the 2's. Thanks to that, we move in-place 0's and 2's to the target locations efficiently.    
+The numbers, i.e 0, 1, 2, are sorted by moving 0's and 2's to the start and end of the array, respectively. To achieve the target time complexity, we perform a single traversal by maintaining two variables to keep track of the indices of the location for the last index of the 0's and first index of the 2's. Thanks to that, we move in-place 0's and 2's to the target locations efficiently, in O(n) time. 
 
 
 ### Problem 5: Autocomplete with Tries
 #### Description:
 The problem description is included in the problem's notebook.
 
-#### Expected Time Complexity
+#### Expected Time Complexity:
 O(m*n), where m is the number of words and n is the length of the average word.
 
-#### Analysis
+#### Analysis:
 Dictionary data structure was employed to represent the children of a Trie node. Another approach would be to use list instead. Dict-based approach has more memory overhead than list, but it is faster (?).
 
 With the implemented approach, it takes O(m*n) time to list all possible suffixes for a prefix. We perform this through a series of steps, which are enumerated below: 
@@ -121,12 +121,12 @@ With the implemented approach, it takes O(m*n) time to list all possible suffixe
 #### Expected Time Complexity:
 O(n)
 
-#### Analysis
+#### Analysis:
 Two variables were initialized to the first element of the array to keep track of the minimum and maximum of the given array. These variable values are then updated by comparisons to all elements of an array through a single traversal. Since there is a single traversal and O(1) work are done for each element, the time complexity is O(n).
 
 
 ### Problem 7: HTTPRouter with a Trie
-#### Description
+#### Description:
 >For this exercise we are going to implement an HTTPRouter like you would find in a typical web server using the Trie data structure we learned previously.
 >
 >The purpose of an HTTP Router is to take a URL path like "/", "/about", or "/blog/2019-01-15/my-awesome-blog-post" and figure out what content to return. In a dynamic web server, the content will often come from a block of code called a handler.
@@ -144,10 +144,10 @@ Two variables were initialized to the first element of the array to keep track o
 >
 >**Bonus Point**: Handle trailing slashes! A request for '/about' or '/about/' are probably looking for the same page. Requests for '' or '/' are probably looking for the root handler. Handle these edge cases in your Router.
 
-#### Expected Time Complexity
+#### Expected Time Complexity:
 A lookup should take O(n) time.
 
-#### Analysis
+#### Analysis:
 All desired components as well as bonus points were successfully implemented to meet the specifications. A route trie is implemented using dictionary data structure to store children nodes. The keys of the dictionary is consisted of path parts, which are the parts between slashes such as "about" and "me" in "about/me". The nodes, in turn, stores the handlers. 
 
 On lookup, the desired node is found in O(n) time thanks to the employed trie data structure. Then, its handler is returned to the user for use. The efficiency of the approach is demonstrated with tests of huge, regular and invalid inputs in the file problem_7_test.py.
