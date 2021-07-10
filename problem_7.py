@@ -64,7 +64,6 @@ def _is_valid_path(path):
     return isinstance(path, str)
 
 
-
 def _split_path(path: str) -> filter:
     return filter(lambda elt: elt != "", path.split("/"))
 

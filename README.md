@@ -22,10 +22,12 @@ An analysis for all seven problems are given under this section.
 #### Expected Time Complexity:
 O(log(n))
 #### Analysis:
-
 A brute-force approach would be to try out candidates starting from 0 in a sequential manner, i.e 0, 1, 2, 3 ... sqrt(number). However, the complexity of this approach is O(sqrt(n)). 
 
 A more efficient approach is to perform a binary search over the candidate space, which is the range from 0 to the given number. According to that, one half of the candidate space is thrown away based on a comparison of the given number with the square of the candidate lying on the middle. Performing this recursively, we arrive to the correct answer in O(logn) time.       
+
+#### Space Complexity Analysis
+The number of variables that the algorithm initializes are constant w.r.t. size of the input. Therefore, the solution is O(1) in space.  
 
 ### Problem 2: Search in a Rotated Sorted Array
 #### Description:
@@ -57,6 +59,10 @@ Finally, Binary Search algorithm takes O(logn) time to find the position of the 
 
 Overall time complexity is, therefore, O(log(n)).
 
+#### Space Complexity Analysis
+Finding the pivot as well as the binary search index take place in constant space, i.e O(1). Therefore, the space complexity of the problem is O(1).  
+
+
 ### Problem 3: Rearrange Array Elements
 #### Description
 >Rearrange Array Elements so as to form two number such that their sum is maximum. Return these two numbers. You can assume that all array elements are in the range [0, 9]. The number of digits in both the numbers cannot differ by more than 1. You're not allowed to use any sorting function that Python provides.
@@ -87,6 +93,9 @@ The time complexity of the solution can be calculated as follows:
 
 All in all, the complexity is O(nlogn) + O(n) + O(n) = O(nlogn).
 
+#### Space Complexity Analysis
+Heapsort is not an in-place sorting algorithm because it creates a priority queue in the back-end. Therefore, it takes O(n) space in memory. On the other hand, other operations have O(1) space complexity. Therefore, the overall solution is O(n) in space.    
+
 ### Problem 4: Dutch National Flag Problem
 #### Description:
 >Given an input array consisting on only 0, 1, and 2, sort the array in a single traversal. You're not allowed to use any sorting function that Python provides.
@@ -96,6 +105,9 @@ O(n)
 
 #### Analysis
 The numbers, i.e 0, 1, 2, are sorted by moving 0's and 2's to the start and end of the array, respectively. To achieve the target time complexity, we perform a single traversal by maintaining two variables to keep track of the indices of the location for the last index of the 0's and first index of the 2's. Thanks to that, we move in-place 0's and 2's to the target locations efficiently, in O(n) time. 
+
+#### Space Complexity Analysis
+The problem is solved through an in-place sorting algorithm. It takes constant space regardless of input size and therefore O(1) in space.   
 
 
 ### Problem 5: Autocomplete with Tries
@@ -113,6 +125,9 @@ With the implemented approach, it takes O(m*n) time to list all possible suffixe
 2. Once we know the end node of prefix, a recursive DFS method is employed to traverse all suffix nodes. Since all characters will be traversed in the worst case, the time complexity is the expected time complexity, which is O(m*n).
 
 
+#### Space Complexity Analysis
+We build a trie and its size scales linearly with the input words. Moreover, finding suffixes creates an additional list of possible words. Therefore, in the worst case, the space complexity would be O(m*n). 
+
 
 ### Problem 6: Unsorted Integer Array  
 #### Description:
@@ -123,6 +138,9 @@ O(n)
 
 #### Analysis:
 Two variables were initialized to the first element of the array to keep track of the minimum and maximum of the given array. These variable values are then updated by comparisons to all elements of an array through a single traversal. Since there is a single traversal and O(1) work are done for each element, the time complexity is O(n).
+
+#### Space Complexity Analysis
+The proposed solution introduces constant amount of variables irrespective of the input size. Therefore, the solution is O(1) in space.
 
 
 ### Problem 7: HTTPRouter with a Trie
@@ -154,6 +172,8 @@ On lookup, the desired node is found in O(n) time thanks to the employed trie da
 
 Additionally, a `HTTPRequestHandler` class was preferred over pure Python strings to represent handlers to emulate real-world scenarios. According to that, the implemented class' representation, i.e `__repr__` method, returns the string of the handler.   
 
+#### Space Complexity Analysis
+Similar to Problem 5, we introduce a Trie that scales linearly to the input paths in space. Moreover, `lookup` operation, which returns the desired node's handler, is O(1) in space. Overall space complexity is, therefore, O(n), where n is the product of the average word length and total word count.  
 
 ## Acknowledgements
 The project is developed as a part of the Data Structures & Algorithms course offered by Udacity. 

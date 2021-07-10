@@ -15,7 +15,7 @@ def rearrange_digits(arr: list, builtin_sort=False) -> list:
         arr = heapsort(arr)
 
     return list(map(list_to_int, [arr[::2], arr[1::2]]))
-    
+
 
 def heapsort(arr: list) -> list:
     arr = arr[:]
